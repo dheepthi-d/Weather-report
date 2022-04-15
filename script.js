@@ -17,8 +17,9 @@ let weather = {
     const { speed } = data.wind;
     console.log(name, icon, description, temp, humidity, speed);
     document.querySelector(".city").innerText = "Weather in " + name;
-    document.querySelector(".description").innerText =
-      "Condition : " + description;
+    document.querySelector(".icon").src =
+      "http://openweathermap.org/img/wn/" + icon + ".png";
+    document.querySelector(".description").innerText = description;
     document.querySelector(".temp").innerText = temp + "°F";
     document.querySelector(".humidity").innerText =
       "Humidity : " + humidity + "%";
@@ -27,6 +28,7 @@ let weather = {
     document.body.style.backgroundImage =
       "url('https://source.unsplash.com/1600x900/?" + name + "' )";
   },
+
 
   search: function () {
     this.fetchWeather(document.querySelector(".search-bar").value);
